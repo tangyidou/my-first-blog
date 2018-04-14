@@ -2,12 +2,19 @@
 
 {% block content %}
     <div class="article">
-        <h1>{{ article.title }}</h1>
-        {% if post.published_date %}
+        {% if article.published_date %}
             <div class="date">
                 {{ article.published_date }}
             </div>
         {% endif %}
+        <a class="btn btn-default" href="{% url 'article_edit' pk=article.pk %}">
+            <span class="glyphicon glyphicon-pencil"></span>
+        </a>
+        <h1>{{ article.title }}</h1>
         <p>{{ article.text|linebreaksbr }}</p>
+    </div>
+
+    <div class="comment">
+
     </div>
 {% endblock %}
